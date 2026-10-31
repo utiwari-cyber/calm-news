@@ -7,6 +7,7 @@ Stdlib only, so it runs anywhere (laptop or GitHub Actions) with no installs.
 import concurrent.futures as cf
 import datetime as dt
 import email.utils
+import gzip
 import hashlib
 import html
 import json
@@ -60,7 +61,9 @@ def gn_url(query, section):
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=20) as r:
-        return r.read()
+        data = r.read()
+    # Some feeds (e.g. DeepMind) send gzip even when it wasn't asked for
+    return gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
 
 
 def clean(text, limit=None):

@@ -180,7 +180,7 @@
    "name": "Indian Express",
    "tier": 2,
    "section": "india",
-   "rss": "https://indianexpress.com/section/india/feed/",
+   "gn": "site:indianexpress.com India", "domains": ["indianexpress.com"],
    "dedicated": true
   },
   {
