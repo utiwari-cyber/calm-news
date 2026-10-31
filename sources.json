@@ -1,19 +1,29 @@
 {
  "feed_size": {
-  "min": 85,
-  "max": 100
+  "min": 250,
+  "max": 300
  },
  "section_caps": {
-  "world": 18,
-  "india": 12,
-  "business": 12,
-  "ai": 14,
-  "china": 8,
-  "uber": 8,
-  "science": 8,
-  "auto": 8,
-  "northeast": 7,
-  "lucknow": 5
+  "world": 25,
+  "india": 18,
+  "business": 18,
+  "ai": 20,
+  "china": 12,
+  "uber": 10,
+  "science": 14,
+  "auto": 10,
+  "northeast": 10,
+  "lucknow": 8,
+  "australia": 22,
+  "politics": 18,
+  "india_politics": 14,
+  "f1": 10,
+  "cricket": 12,
+  "india_sports": 10,
+  "parenting": 10,
+  "japan": 14,
+  "money": 14,
+  "tech": 18
  },
  "corroboration": {
   "world": {
@@ -92,6 +102,79 @@
     3
    ],
    "strict": true
+  },
+  "australia": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2,
+    3
+   ]
+  },
+  "politics": {
+   "min_sources": 2,
+   "or_one_tier": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "india_politics": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "f1": {
+   "min_sources": 1,
+   "tiers": [
+    0,
+    1,
+    2
+   ]
+  },
+  "cricket": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "india_sports": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "parenting": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "japan": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "money": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "tech": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
   }
  },
  "_tiers": "0 = company primary source (announcements), 1 = wire/public broadcaster, 2 = quality paper/specialist, 3 = trusted local",
@@ -127,8 +210,12 @@
    "id": "abc_au",
    "name": "ABC News",
    "tier": 1,
-   "section": "world",
-   "rss": "https://www.abc.net.au/news/feed/51120/rss.xml"
+   "section": "australia",
+   "rss": "https://www.abc.net.au/news/feed/51120/rss.xml",
+   "route": [
+    "cricket",
+    "f1"
+   ]
   },
   {
    "id": "rnz",
@@ -155,8 +242,12 @@
    "id": "guardian_au",
    "name": "The Guardian",
    "tier": 2,
-   "section": "world",
-   "rss": "https://www.theguardian.com/australia-news/rss"
+   "section": "australia",
+   "rss": "https://www.theguardian.com/australia-news/rss",
+   "route": [
+    "cricket",
+    "f1"
+   ]
   },
   {
    "id": "aljazeera",
@@ -171,7 +262,10 @@
    "tier": 2,
    "section": "india",
    "rss": "https://www.thehindu.com/news/national/feeder/default.rss",
-   "dedicated": true
+   "dedicated": true,
+   "route": [
+    "india_politics"
+   ]
   },
   {
    "id": "indianexpress",
@@ -192,6 +286,9 @@
    "gn": "site:reuters.com India",
    "domains": [
     "reuters.com"
+   ],
+   "route": [
+    "india_politics"
    ]
   },
   {
@@ -336,7 +433,8 @@
    "name": "Ars Technica",
    "tier": 2,
    "section": "ai",
-   "rss": "https://feeds.arstechnica.com/arstechnica/index"
+   "rss": "https://feeds.arstechnica.com/arstechnica/index",
+   "fallback": "tech"
   },
   {
    "id": "verge_ai",
@@ -550,6 +648,389 @@
    "domains": [
     "reuters.com"
    ]
+  },
+  {
+   "id": "age_vic",
+   "name": "The Age",
+   "tier": 2,
+   "section": "australia",
+   "rss": "https://www.theage.com.au/rss/national/victoria.xml",
+   "dedicated": true,
+   "route": [
+    "cricket",
+    "f1"
+   ]
+  },
+  {
+   "id": "age",
+   "name": "The Age",
+   "tier": 2,
+   "section": "australia",
+   "rss": "https://www.theage.com.au/rss/feed.xml",
+   "route": [
+    "cricket",
+    "f1"
+   ]
+  },
+  {
+   "id": "sbs",
+   "name": "SBS News",
+   "tier": 1,
+   "section": "australia",
+   "rss": "https://www.sbs.com.au/news/feed",
+   "route": [
+    "cricket",
+    "f1"
+   ]
+  },
+  {
+   "id": "abc_just_in",
+   "name": "ABC News",
+   "tier": 1,
+   "section": "australia",
+   "rss": "https://www.abc.net.au/news/feed/2942460/rss.xml",
+   "route": [
+    "cricket",
+    "f1"
+   ]
+  },
+  {
+   "id": "gn_melbourne",
+   "name": "Google News",
+   "tier": 2,
+   "section": "australia",
+   "gn": "Melbourne OR Victoria",
+   "domains": [
+    "theage.com.au",
+    "abc.net.au",
+    "sbs.com.au",
+    "theguardian.com",
+    "afr.com"
+   ],
+   "dedicated": true,
+   "route": [
+    "cricket",
+    "f1"
+   ]
+  },
+  {
+   "id": "reuters_politics",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "politics",
+   "gn": "site:reuters.com politics OR election",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "ap_politics",
+   "name": "AP",
+   "tier": 1,
+   "section": "politics",
+   "gn": "site:apnews.com politics OR election",
+   "domains": [
+    "apnews.com"
+   ]
+  },
+  {
+   "id": "guardian_politics",
+   "name": "The Guardian",
+   "tier": 2,
+   "section": "politics",
+   "rss": "https://www.theguardian.com/politics/rss",
+   "dedicated": true
+  },
+  {
+   "id": "gn_politics",
+   "name": "Google News",
+   "tier": 2,
+   "section": "politics",
+   "gn": "election OR parliament OR \"prime minister\" OR president",
+   "domains": [
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "economist.com",
+    "politico.com",
+    "politico.eu",
+    "nytimes.com",
+    "theguardian.com"
+   ]
+  },
+  {
+   "id": "gn_india_politics",
+   "name": "Google News",
+   "tier": 2,
+   "section": "india_politics",
+   "gn": "BJP OR Congress OR \"Lok Sabha\" OR \"Rajya Sabha\" OR \"chief minister\" OR \"assembly election\"",
+   "domains": [
+    "thehindu.com",
+    "indianexpress.com",
+    "ndtv.com",
+    "hindustantimes.com",
+    "theprint.in",
+    "scroll.in",
+    "livemint.com",
+    "reuters.com",
+    "economictimes.indiatimes.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "ie_political_pulse",
+   "name": "The Indian Express",
+   "tier": 2,
+   "section": "india_politics",
+   "gn": "site:indianexpress.com political pulse",
+   "domains": [
+    "indianexpress.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "bbc_f1",
+   "name": "BBC Sport",
+   "tier": 1,
+   "section": "f1",
+   "rss": "https://feeds.bbci.co.uk/sport/formula1/rss.xml",
+   "dedicated": true
+  },
+  {
+   "id": "autosport_f1",
+   "name": "Autosport",
+   "tier": 2,
+   "section": "f1",
+   "rss": "https://www.autosport.com/rss/f1/news/",
+   "dedicated": true
+  },
+  {
+   "id": "formula1",
+   "name": "Formula 1",
+   "tier": 0,
+   "section": "f1",
+   "rss": "https://www.formula1.com/en/latest/all.xml",
+   "dedicated": true
+  },
+  {
+   "id": "cricinfo",
+   "name": "ESPNcricinfo",
+   "tier": 2,
+   "section": "cricket",
+   "rss": "https://www.espncricinfo.com/rss/content/story/feeds/0.xml",
+   "dedicated": true
+  },
+  {
+   "id": "bbc_cricket",
+   "name": "BBC Sport",
+   "tier": 1,
+   "section": "cricket",
+   "rss": "https://feeds.bbci.co.uk/sport/cricket/rss.xml",
+   "dedicated": true
+  },
+  {
+   "id": "hindu_sport",
+   "name": "The Hindu",
+   "tier": 2,
+   "section": "india_sports",
+   "rss": "https://www.thehindu.com/sport/feeder/default.rss",
+   "dedicated": true,
+   "route": [
+    "cricket"
+   ]
+  },
+  {
+   "id": "sportstar",
+   "name": "Sportstar",
+   "tier": 2,
+   "section": "india_sports",
+   "rss": "https://sportstar.thehindu.com/feeder/default.rss",
+   "dedicated": true,
+   "route": [
+    "cricket"
+   ]
+  },
+  {
+   "id": "gn_india_sports",
+   "name": "Google News",
+   "tier": 2,
+   "section": "india_sports",
+   "gn": "India hockey OR football OR badminton OR chess OR athletics OR wrestling OR boxing OR kabaddi",
+   "domains": [
+    "thehindu.com",
+    "sportstar.thehindu.com",
+    "indianexpress.com",
+    "espn.in",
+    "hindustantimes.com",
+    "olympics.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "guardian_parents",
+   "name": "The Guardian",
+   "tier": 2,
+   "section": "parenting",
+   "rss": "https://www.theguardian.com/lifeandstyle/parents-and-parenting/rss",
+   "fallback": "skip"
+  },
+  {
+   "id": "sciencedaily_child",
+   "name": "ScienceDaily",
+   "tier": 2,
+   "section": "parenting",
+   "rss": "https://www.sciencedaily.com/rss/mind_brain/child_development.xml",
+   "fallback": "skip"
+  },
+  {
+   "id": "gn_child_health",
+   "name": "Google News",
+   "tier": 2,
+   "section": "parenting",
+   "gn": "baby OR infant OR toddler OR paediatric OR pediatric OR \"child health\" OR parenting",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "theguardian.com",
+    "abc.net.au",
+    "nytimes.com",
+    "raisingchildren.net.au",
+    "healthychildren.org",
+    "nhs.uk",
+    "who.int",
+    "npr.org"
+   ],
+   "fallback": "skip"
+  },
+  {
+   "id": "japantimes",
+   "name": "The Japan Times",
+   "tier": 2,
+   "section": "japan",
+   "rss": "https://www.japantimes.co.jp/feed/",
+   "dedicated": true
+  },
+  {
+   "id": "kyodo",
+   "name": "Kyodo News",
+   "tier": 1,
+   "section": "japan",
+   "gn": "site:english.kyodonews.net",
+   "domains": [
+    "english.kyodonews.net"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "nhk_world",
+   "name": "NHK World",
+   "tier": 1,
+   "section": "japan",
+   "gn": "site:www3.nhk.or.jp nhkworld",
+   "domains": [
+    "nhk.or.jp"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "nikkei_japan",
+   "name": "Nikkei Asia",
+   "tier": 2,
+   "section": "japan",
+   "gn": "site:asia.nikkei.com Japan",
+   "domains": [
+    "asia.nikkei.com"
+   ]
+  },
+  {
+   "id": "reuters_japan",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "japan",
+   "gn": "site:reuters.com Japan",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "guardian_money",
+   "name": "The Guardian",
+   "tier": 2,
+   "section": "money",
+   "rss": "https://www.theguardian.com/money/rss",
+   "dedicated": true
+  },
+  {
+   "id": "gn_personal_finance",
+   "name": "Google News",
+   "tier": 2,
+   "section": "money",
+   "gn": "\"personal finance\" OR superannuation OR mortgage OR savings OR \"interest rates\" OR budgeting",
+   "domains": [
+    "abc.net.au",
+    "afr.com",
+    "theguardian.com",
+    "ft.com",
+    "reuters.com",
+    "cnbc.com",
+    "moneysmart.gov.au",
+    "nytimes.com",
+    "livemint.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "gn_productivity",
+   "name": "Google News",
+   "tier": 2,
+   "section": "money",
+   "gn": "productivity OR \"remote work\" OR \"four-day week\" OR workplace OR careers",
+   "domains": [
+    "hbr.org",
+    "ft.com",
+    "bbc.com",
+    "bbc.co.uk",
+    "theguardian.com",
+    "economist.com",
+    "wsj.com",
+    "nytimes.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "verge",
+   "name": "The Verge",
+   "tier": 2,
+   "section": "tech",
+   "rss": "https://www.theverge.com/rss/index.xml",
+   "dedicated": true,
+   "route": [
+    "ai"
+   ]
+  },
+  {
+   "id": "techcrunch",
+   "name": "TechCrunch",
+   "tier": 2,
+   "section": "tech",
+   "rss": "https://techcrunch.com/feed/",
+   "dedicated": true,
+   "route": [
+    "ai"
+   ]
+  },
+  {
+   "id": "bbc_tech",
+   "name": "BBC",
+   "tier": 1,
+   "section": "tech",
+   "rss": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+   "dedicated": true,
+   "route": [
+    "ai"
+   ]
   }
  ],
  "section_keywords": {
@@ -561,6 +1042,16 @@
   "india": "india|delhi|mumbai|modi|rupee|bengaluru|kolkata|chennai|hyderabad|bjp|congress party",
   "northeast": "assam|meghalaya|shillong|guwahati|north[- ]?east|manipur|nagaland|mizoram|tripura|arunachal|sikkim|dibrugarh|silchar|jorhat|tezpur|dhubri|kokrajhar|khasi|garo|jaintia|khadc|bodoland|\\btura\\b|brahmaputra",
   "lucknow": "lucknow|uttar pradesh|\\bup\\b|yogi|ayodhya|kanpur|varanasi|noida|prayagraj|agra",
-  "science": "."
+  "science": ".",
+  "australia": "australia|australian|melbourne|victoria|sydney|brisbane|perth|adelaide|canberra|queensland|tasmania|albanese|\\bnsw\\b|\\bvic\\b|darwin|hobart|geelong",
+  "politics": "election|parliament|president|prime minister|senate|congress\\b|\\bvote|voters|coalition|minister|government|referendum|sanctions?|diplomat|summit|opposition|white house|kremlin|trump|political|polls?\\b",
+  "india_politics": "\\bbjp\\b|congress|lok sabha|rajya sabha|assembly (poll|election)|modi|rahul gandhi|kejriwal|\\baap\\b|chief minister|election commission|\\bnda\\b|india bloc|opposition|by-?election",
+  "cricket": "cricket|\\bipl\\b|test match|\\bodi\\b|\\bt20|wicket|\\bbcci\\b|ashes|innings|\\bwpl\\b|batting|bowling|bowler|\\bwarner\\b",
+  "japan": "japan|japanese|tokyo|osaka|kyoto|hokkaido|okinawa|takaichi|ishiba|bank of japan|\\bboj\\b|nikkei|\\byen\\b",
+  "f1": "formula (1|one)|\\bf1\\b|grand prix|verstappen|hamilton|piastri|norris|leclerc|russell|mclaren|red bull racing",
+  "india_sports": ".",
+  "parenting": "\\bbab(y|ies)\\b|infant|toddler|newborn|\\bchild(ren)?\\b|\\bkids?\\b|parent|pregnan|paediatric|pediatric|breastfe|childcare|nappy|diaper|\\bsids\\b|school|teen|adolescen|vaccin|autism|\\badhd\\b",
+  "money": ".",
+  "tech": "."
  }
 }

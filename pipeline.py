@@ -44,6 +44,7 @@ EXCLUDE = [
     r"\bquiz\b", r"crossword", r"wordle", r"\bpodcast\b", r"\bcelebrit", r"\bbollywood\b", r"\bkardashian",
     r"\bgossip\b", r"\bhow to\b", r"\bdeals?\b", r"\bsavings\b", r"pre-order", r"\bjobs? 20\d\d", r"recruitment",
     r"vacanc", r"admit card", r"\|\s*live\b", r"\beligibility\b", r"\bprice list\b", r"\bexplained\b", r"\bcheck (out )?(list|details)\b", r"\btrolled\b", r"\bweekend reads?\b", r"\bdeal(s)? of the day\b", r"\bbest .* to buy\b",
+    r"\bcoupons?\b", r"promo codes?", r"\bbest .*\(20\d\d\)", r"\d+% off\b", r"\blast chance\b",
 ]
 STOP = set("""a an the and or of to in on for at by with from as is are was were be been it its this that
 these those after over into about than amid says said say new will would could may might not no up out
@@ -53,7 +54,7 @@ s has have had his her their they he she we you your our who what when where why
 # ---------- fetch & parse ----------
 
 def gn_url(query, section):
-    hl, gl, ceid = ("en-IN", "IN", "IN:en") if section in ("india", "northeast", "lucknow") else ("en-AU", "AU", "AU:en")
+    hl, gl, ceid = ("en-IN", "IN", "IN:en") if section in ("india", "india_politics", "india_sports", "northeast", "lucknow") else ("en-AU", "AU", "AU:en")
     q = urllib.parse.quote(f"{query} when:1d")
     return f"https://news.google.com/rss/search?q={q}&hl={hl}&gl={gl}&ceid={ceid}"
 
@@ -116,13 +117,17 @@ def domain_of(url):
 def section_for(src, title, desc):
     """Broad feeds (e.g. a Reuters search) keep their section only if the story is about it."""
     sec = src["section"]
+    text = f"{title} {desc[:300]}"
+    for alt in src.get("route", []):  # e.g. a sports feed's cricket stories go to Cricket
+        if re.search(CONFIG["section_keywords"][alt], text, re.I):
+            return alt
     if sec == "world" or src.get("dedicated"):
         return sec
-    if re.search(CONFIG["section_keywords"][sec], f"{title} {desc[:300]}", re.I):
+    if re.search(CONFIG["section_keywords"][sec], text, re.I):
         return sec
     if sec in ("northeast", "lucknow"):  # local outlets also carry national news
         return "india" if re.search(CONFIG["section_keywords"]["india"], f"{title} {desc}", re.I) else "world"
-    return "world"
+    return src.get("fallback", "world")
 
 
 def parse_feed(src, raw):
@@ -158,7 +163,7 @@ def parse_feed(src, raw):
             "title": title, "link": link.strip(), "desc": desc, "image": image_of(e),
             "published": date.isoformat() if date else None,
         })
-    return out
+    return [a for a in out if a["section"] != "skip"]  # off-topic items from a narrow feed
 
 
 def fetch_all():

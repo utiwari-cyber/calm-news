@@ -1,10 +1,14 @@
 const SECTIONS = {
   all: "All", world: "World", india: "India", northeast: "Northeast", lucknow: "Lucknow",
   business: "Business", ai: "AI", china: "China", uber: "Uber & rivals", science: "Science", auto: "Auto",
+  australia: "Australia", politics: "World Politics", india_politics: "Indian Politics", f1: "F1", cricket: "Cricket",
+  india_sports: "Indian Sports", parenting: "Baby & Child", japan: "Japan", money: "Money & Productivity", tech: "Tech",
 };
 const TINT = {
   world: "#dfe7ea", india: "#efe2d3", northeast: "#dce8dc", lucknow: "#eadfe8", business: "#e3e1ee",
   ai: "#dde4f1", china: "#f0dddb", uber: "#e2e2e2", science: "#dcebe6", auto: "#ebe6d6",
+  australia: "#e6e9d8", politics: "#e9dfdf", india_politics: "#efe4d8", f1: "#f0dcdc", cricket: "#dde9df",
+  india_sports: "#e4ecd9", parenting: "#f3e3e6", japan: "#f1e0e2", money: "#e0e8e1", tech: "#dfe3ec",
 };
 
 let cards = [];
