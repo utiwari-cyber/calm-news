@@ -1,19 +1,19 @@
 {
  "feed_size": {
-  "min": 30,
-  "max": 35
+  "min": 85,
+  "max": 100
  },
  "section_caps": {
-  "world": 7,
-  "india": 4,
-  "business": 4,
-  "ai": 5,
-  "china": 3,
-  "uber": 3,
-  "science": 3,
-  "auto": 3,
-  "northeast": 3,
-  "lucknow": 2
+  "world": 18,
+  "india": 12,
+  "business": 12,
+  "ai": 14,
+  "china": 8,
+  "uber": 8,
+  "science": 8,
+  "auto": 8,
+  "northeast": 7,
+  "lucknow": 5
  },
  "corroboration": {
   "world": {
@@ -25,8 +25,7 @@
    ]
   },
   "india": {
-   "min_sources": 2,
-   "or_one_tier": 1,
+   "min_sources": 1,
    "tiers": [
     1,
     2
@@ -41,8 +40,7 @@
    ]
   },
   "china": {
-   "min_sources": 2,
-   "or_one_tier": 1,
+   "min_sources": 1,
    "tiers": [
     1,
     2
@@ -180,7 +178,10 @@
    "name": "Indian Express",
    "tier": 2,
    "section": "india",
-   "gn": "site:indianexpress.com India", "domains": ["indianexpress.com"],
+   "gn": "site:indianexpress.com India",
+   "domains": [
+    "indianexpress.com"
+   ],
    "dedicated": true
   },
   {
@@ -404,6 +405,94 @@
     "cnbc.com",
     "wsj.com",
     "nytimes.com"
+   ]
+  },
+  {
+   "id": "gn_uber_only",
+   "name": "Google News",
+   "tier": 2,
+   "section": "uber",
+   "gn": "Uber",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "theguardian.com",
+    "techcrunch.com",
+    "theverge.com",
+    "scmp.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "cnbc.com",
+    "wsj.com",
+    "nytimes.com"
+   ]
+  },
+  {
+   "id": "gn_delivery",
+   "name": "Google News",
+   "tier": 2,
+   "section": "uber",
+   "gn": "DoorDash OR Deliveroo OR Instacart OR Swiggy OR Zomato OR Meituan OR \"Just Eat\" OR Menulog",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "theguardian.com",
+    "techcrunch.com",
+    "theverge.com",
+    "scmp.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "cnbc.com",
+    "wsj.com",
+    "nytimes.com"
+   ]
+  },
+  {
+   "id": "gn_ridehail",
+   "name": "Google News",
+   "tier": 2,
+   "section": "uber",
+   "gn": "Lyft OR Grab OR Didi OR Bolt OR Waymo OR robotaxi",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "theguardian.com",
+    "techcrunch.com",
+    "theverge.com",
+    "scmp.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "cnbc.com",
+    "wsj.com",
+    "nytimes.com"
+   ]
+  },
+  {
+   "id": "reuters_mobility",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "uber",
+   "gn": "site:reuters.com Uber OR DoorDash OR Lyft OR Grab OR Didi OR Deliveroo OR Instacart OR Meituan OR Waymo",
+   "domains": [
+    "reuters.com"
    ]
   },
   {
