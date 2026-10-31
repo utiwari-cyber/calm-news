@@ -163,15 +163,15 @@ def fetch_all():
 
     def one(src):
         url = gn_url(src["gn"], src["section"]) if "gn" in src else src["rss"]
-        return src, parse_feed(src, fetch(url))
+        return parse_feed(src, fetch(url))
 
     with cf.ThreadPoolExecutor(max_workers=12) as pool:
-        for fut in cf.as_completed([pool.submit(one, s) for s in CONFIG["sources"]]):
+        futures = {pool.submit(one, s): s for s in CONFIG["sources"]}
+        for fut in cf.as_completed(futures):
             try:
-                src, items = fut.result()
-                articles += items
+                articles += fut.result()
             except Exception as ex:  # one bad feed never breaks the run
-                failures.append(str(ex)[:120])
+                failures.append(f"{futures[fut]['id']}: {str(ex)[:120]}")
     cutoff = NOW - dt.timedelta(hours=MAX_AGE_HOURS)
     fresh = [a for a in articles if not a["published"] or dt.datetime.fromisoformat(a["published"]) >= cutoff]
     seen, unique = set(), []
