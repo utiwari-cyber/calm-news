@@ -1,0 +1,477 @@
+{
+ "feed_size": {
+  "min": 30,
+  "max": 35
+ },
+ "section_caps": {
+  "world": 7,
+  "india": 4,
+  "business": 4,
+  "ai": 5,
+  "china": 3,
+  "uber": 3,
+  "science": 3,
+  "auto": 3,
+  "northeast": 3,
+  "lucknow": 2
+ },
+ "corroboration": {
+  "world": {
+   "min_sources": 2,
+   "or_one_tier": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "india": {
+   "min_sources": 2,
+   "or_one_tier": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "business": {
+   "min_sources": 2,
+   "or_one_tier": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "china": {
+   "min_sources": 2,
+   "or_one_tier": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "ai": {
+   "min_sources": 1,
+   "tiers": [
+    0,
+    1,
+    2
+   ]
+  },
+  "uber": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "science": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "auto": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "northeast": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2,
+    3
+   ],
+   "strict": true
+  },
+  "lucknow": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2,
+    3
+   ],
+   "strict": true
+  }
+ },
+ "_tiers": "0 = company primary source (announcements), 1 = wire/public broadcaster, 2 = quality paper/specialist, 3 = trusted local",
+ "sources": [
+  {
+   "id": "reuters_world",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "world",
+   "gn": "site:reuters.com world",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "ap_world",
+   "name": "AP",
+   "tier": 1,
+   "section": "world",
+   "gn": "site:apnews.com",
+   "domains": [
+    "apnews.com"
+   ]
+  },
+  {
+   "id": "bbc_world",
+   "name": "BBC",
+   "tier": 1,
+   "section": "world",
+   "rss": "https://feeds.bbci.co.uk/news/world/rss.xml"
+  },
+  {
+   "id": "abc_au",
+   "name": "ABC News",
+   "tier": 1,
+   "section": "world",
+   "rss": "https://www.abc.net.au/news/feed/51120/rss.xml"
+  },
+  {
+   "id": "rnz",
+   "name": "RNZ",
+   "tier": 1,
+   "section": "world",
+   "rss": "https://www.rnz.co.nz/rss/national.xml"
+  },
+  {
+   "id": "npr",
+   "name": "NPR",
+   "tier": 1,
+   "section": "world",
+   "rss": "https://feeds.npr.org/1001/rss.xml"
+  },
+  {
+   "id": "guardian_world",
+   "name": "The Guardian",
+   "tier": 2,
+   "section": "world",
+   "rss": "https://www.theguardian.com/world/rss"
+  },
+  {
+   "id": "guardian_au",
+   "name": "The Guardian",
+   "tier": 2,
+   "section": "world",
+   "rss": "https://www.theguardian.com/australia-news/rss"
+  },
+  {
+   "id": "aljazeera",
+   "name": "Al Jazeera",
+   "tier": 2,
+   "section": "world",
+   "rss": "https://www.aljazeera.com/xml/rss/all.xml"
+  },
+  {
+   "id": "hindu",
+   "name": "The Hindu",
+   "tier": 2,
+   "section": "india",
+   "rss": "https://www.thehindu.com/news/national/feeder/default.rss",
+   "dedicated": true
+  },
+  {
+   "id": "indianexpress",
+   "name": "Indian Express",
+   "tier": 2,
+   "section": "india",
+   "rss": "https://indianexpress.com/section/india/feed/",
+   "dedicated": true
+  },
+  {
+   "id": "reuters_india",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "india",
+   "gn": "site:reuters.com India",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "shillongtimes",
+   "name": "The Shillong Times",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://theshillongtimes.com/feed/"
+  },
+  {
+   "id": "highlandpost",
+   "name": "Highland Post",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://highlandpost.com/feed/"
+  },
+  {
+   "id": "assamtribune",
+   "name": "The Assam Tribune",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://assamtribune.com/feed"
+  },
+  {
+   "id": "sentinel",
+   "name": "The Sentinel",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://www.sentinelassam.com/feed"
+  },
+  {
+   "id": "eastmojo",
+   "name": "EastMojo",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://www.eastmojo.com/feed/"
+  },
+  {
+   "id": "nenow",
+   "name": "Northeast Now",
+   "tier": 3,
+   "section": "northeast",
+   "rss": "https://nenow.in/feed"
+  },
+  {
+   "id": "gn_meghalaya",
+   "name": "Google News",
+   "tier": 3,
+   "section": "northeast",
+   "gn": "Meghalaya OR Shillong",
+   "domains": [
+    "theshillongtimes.com",
+    "highlandpost.com",
+    "assamtribune.com",
+    "sentinelassam.com",
+    "eastmojo.com",
+    "nenow.in",
+    "thehindu.com",
+    "indianexpress.com",
+    "hindustantimes.com"
+   ]
+  },
+  {
+   "id": "ht_lucknow",
+   "name": "Hindustan Times",
+   "tier": 3,
+   "section": "lucknow",
+   "rss": "https://www.hindustantimes.com/feeds/rss/cities/lucknow-news/rssfeed.xml"
+  },
+  {
+   "id": "toi_lucknow",
+   "name": "Times of India",
+   "tier": 3,
+   "section": "lucknow",
+   "rss": "https://timesofindia.indiatimes.com/rssfeeds/-2128819658.cms"
+  },
+  {
+   "id": "reuters_business",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "business",
+   "gn": "site:reuters.com business",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "bbc_business",
+   "name": "BBC",
+   "tier": 1,
+   "section": "business",
+   "rss": "https://feeds.bbci.co.uk/news/business/rss.xml"
+  },
+  {
+   "id": "gn_paywalled_business",
+   "name": "Google News",
+   "tier": 2,
+   "section": "business",
+   "gn": "site:ft.com OR site:bloomberg.com OR site:afr.com",
+   "domains": [
+    "ft.com",
+    "bloomberg.com",
+    "afr.com"
+   ]
+  },
+  {
+   "id": "openai",
+   "name": "OpenAI",
+   "tier": 0,
+   "section": "ai",
+   "rss": "https://openai.com/news/rss.xml",
+   "dedicated": true
+  },
+  {
+   "id": "anthropic",
+   "name": "Anthropic",
+   "tier": 0,
+   "section": "ai",
+   "gn": "site:anthropic.com",
+   "domains": [
+    "anthropic.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "deepmind",
+   "name": "Google DeepMind",
+   "tier": 0,
+   "section": "ai",
+   "rss": "https://deepmind.google/blog/rss.xml",
+   "dedicated": true
+  },
+  {
+   "id": "mittr",
+   "name": "MIT Technology Review",
+   "tier": 2,
+   "section": "ai",
+   "rss": "https://www.technologyreview.com/feed/"
+  },
+  {
+   "id": "ars",
+   "name": "Ars Technica",
+   "tier": 2,
+   "section": "ai",
+   "rss": "https://feeds.arstechnica.com/arstechnica/index"
+  },
+  {
+   "id": "verge_ai",
+   "name": "The Verge",
+   "tier": 2,
+   "section": "ai",
+   "rss": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+  },
+  {
+   "id": "reuters_tech",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "ai",
+   "gn": "site:reuters.com artificial intelligence",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "scmp_china",
+   "name": "South China Morning Post",
+   "tier": 2,
+   "section": "china",
+   "rss": "https://www.scmp.com/rss/4/feed",
+   "dedicated": true
+  },
+  {
+   "id": "scmp_tech",
+   "name": "South China Morning Post",
+   "tier": 2,
+   "section": "china",
+   "rss": "https://www.scmp.com/rss/36/feed",
+   "dedicated": true
+  },
+  {
+   "id": "reuters_china",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "china",
+   "gn": "site:reuters.com China",
+   "domains": [
+    "reuters.com"
+   ]
+  },
+  {
+   "id": "gn_uber",
+   "name": "Google News",
+   "tier": 2,
+   "section": "uber",
+   "gn": "Uber OR DoorDash OR Deliveroo OR Grab OR Didi OR Lyft OR Bolt OR Instacart OR Swiggy OR Zomato OR Meituan",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "theguardian.com",
+    "techcrunch.com",
+    "theverge.com",
+    "scmp.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "cnbc.com",
+    "wsj.com",
+    "nytimes.com"
+   ]
+  },
+  {
+   "id": "nature",
+   "name": "Nature",
+   "tier": 2,
+   "section": "science",
+   "rss": "https://www.nature.com/nature.rss",
+   "dedicated": true
+  },
+  {
+   "id": "bbc_science",
+   "name": "BBC",
+   "tier": 1,
+   "section": "science",
+   "rss": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+   "dedicated": true
+  },
+  {
+   "id": "electrek",
+   "name": "Electrek",
+   "tier": 2,
+   "section": "auto",
+   "rss": "https://electrek.co/feed/",
+   "dedicated": true
+  },
+  {
+   "id": "autocarindia",
+   "name": "Autocar India",
+   "tier": 2,
+   "section": "auto",
+   "gn": "site:autocarindia.com",
+   "domains": [
+    "autocarindia.com"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "drive_au",
+   "name": "Drive",
+   "tier": 2,
+   "section": "auto",
+   "gn": "site:drive.com.au",
+   "domains": [
+    "drive.com.au"
+   ],
+   "dedicated": true
+  },
+  {
+   "id": "reuters_autos",
+   "name": "Reuters",
+   "tier": 1,
+   "section": "auto",
+   "gn": "site:reuters.com autos OR carmaker OR EV",
+   "domains": [
+    "reuters.com"
+   ]
+  }
+ ],
+ "section_keywords": {
+  "ai": "\\bai\\b|artificial intelligence|openai|anthropic|claude|chatgpt|gemini|deepmind|\\bllms?\\b|chatbot|nvidia|machine learning|\\bgpt|copilot|\\bxai\\b|grok|mistral|llama|deepseek|qwen|superintelligence|\\bagi\\b",
+  "business": "market|shares|stocks?\\b|econom|inflation|interest rate|central bank|profit|revenue|earnings|merger|acqui|\\bipo\\b|tariff|\\btrade\\b|\\bgdp\\b|investor|\\bbank|\\bceo\\b|startup|funding|oil price|crude|bond|currency|rupee|dollar|retail|layoffs?",
+  "china": "china|chinese|beijing|shanghai|hong kong|taiwan|\\bxi\\b|shenzhen|huawei|alibaba|tencent|\\bbyd\\b|baidu|xiaomi",
+  "uber": "uber|doordash|deliveroo|\\bgrab\\b|didi|lyft|\\bbolt\\b|instacart|swiggy|zomato|meituan|ride-hail|food delivery|\\bgig\\b",
+  "auto": "\\bcars?\\b|\\bevs?\\b|electric vehicle|carmaker|automaker|tesla|toyota|tata motors|mahindra|maruti|hyundai|\\bbyd\\b|\\bsuv\\b|vehicle|motorbike|scooter|ford|volkswagen|\\bgm\\b",
+  "india": "india|delhi|mumbai|modi|rupee|bengaluru|kolkata|chennai|hyderabad|bjp|congress party",
+  "northeast": "assam|meghalaya|shillong|guwahati|north[- ]?east|manipur|nagaland|mizoram|tripura|arunachal|sikkim|dibrugarh|silchar|jorhat|tezpur|dhubri|kokrajhar|khasi|garo|jaintia|khadc|bodoland|\\btura\\b|brahmaputra",
+  "lucknow": "lucknow|uttar pradesh|\\bup\\b|yogi|ayodhya|kanpur|varanasi|noida|prayagraj|agra",
+  "science": "."
+ }
+}

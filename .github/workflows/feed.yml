@@ -1,0 +1,55 @@
+name: Build feed
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"   # every 2 hours, off the :00 rush
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["app/**", "pipeline.py", "sources.json", ".github/workflows/feed.yml"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: feed
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # AI rewrites are cached by article link so each run only pays for new stories
+      - uses: actions/cache@v4
+        with:
+          path: state
+          key: ai-cache-${{ github.run_id }}
+          restore-keys: ai-cache-
+
+      - name: Run pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 pipeline.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
