@@ -1,5 +1,5 @@
 // Offline support: app shell from cache, feed from network with cached fallback
-const CACHE = "calm-news-v5";
+const CACHE = "calm-news-v6";
 const SHELL = ["./", "index.html", "style.css", "app.js", "manifest.webmanifest", "icon.svg"];
 
 self.addEventListener("install", (e) => {

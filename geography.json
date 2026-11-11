@@ -1,0 +1,566 @@
+[
+{
+"country": "Australia",
+"capital": "Canberra",
+"continent": "Oceania",
+"currency": "Australian dollar"
+},
+{
+"country": "New Zealand",
+"capital": "Wellington",
+"continent": "Oceania",
+"currency": "New Zealand dollar"
+},
+{
+"country": "Fiji",
+"capital": "Suva",
+"continent": "Oceania",
+"currency": "Fijian dollar"
+},
+{
+"country": "Papua New Guinea",
+"capital": "Port Moresby",
+"continent": "Oceania",
+"currency": "kina"
+},
+{
+"country": "Samoa",
+"capital": "Apia",
+"continent": "Oceania",
+"currency": "tālā"
+},
+{
+"country": "Tonga",
+"capital": "Nukuʻalofa",
+"continent": "Oceania",
+"currency": "paʻanga"
+},
+{
+"country": "India",
+"capital": "New Delhi",
+"continent": "Asia",
+"currency": "Indian rupee"
+},
+{
+"country": "Pakistan",
+"capital": "Islamabad",
+"continent": "Asia",
+"currency": "Pakistani rupee"
+},
+{
+"country": "Bangladesh",
+"capital": "Dhaka",
+"continent": "Asia",
+"currency": "Bangladeshi taka"
+},
+{
+"country": "Nepal",
+"capital": "Kathmandu",
+"continent": "Asia",
+"currency": "Nepalese rupee"
+},
+{
+"country": "Bhutan",
+"capital": "Thimphu",
+"continent": "Asia",
+"currency": "Bhutanese ngultrum"
+},
+{
+"country": "China",
+"capital": "Beijing",
+"continent": "Asia",
+"currency": "renminbi (yuan)"
+},
+{
+"country": "Japan",
+"capital": "Tokyo",
+"continent": "Asia",
+"currency": "Japanese yen"
+},
+{
+"country": "South Korea",
+"capital": "Seoul",
+"continent": "Asia",
+"currency": "South Korean won"
+},
+{
+"country": "Mongolia",
+"capital": "Ulaanbaatar",
+"continent": "Asia",
+"currency": "Mongolian tögrög"
+},
+{
+"country": "Vietnam",
+"capital": "Hanoi",
+"continent": "Asia",
+"currency": "Vietnamese đồng"
+},
+{
+"country": "Thailand",
+"capital": "Bangkok",
+"continent": "Asia",
+"currency": "Thai baht"
+},
+{
+"country": "Malaysia",
+"capital": "Kuala Lumpur",
+"continent": "Asia",
+"currency": "Malaysian ringgit"
+},
+{
+"country": "Philippines",
+"capital": "Manila",
+"continent": "Asia",
+"currency": "Philippine peso"
+},
+{
+"country": "Myanmar",
+"capital": "Naypyidaw",
+"continent": "Asia",
+"currency": "Myanmar kyat"
+},
+{
+"country": "Cambodia",
+"capital": "Phnom Penh",
+"continent": "Asia",
+"currency": "Cambodian riel"
+},
+{
+"country": "Laos",
+"capital": "Vientiane",
+"continent": "Asia",
+"currency": "Lao kip"
+},
+{
+"country": "Kazakhstan",
+"capital": "Astana",
+"continent": "Asia",
+"currency": "Kazakhstani tenge"
+},
+{
+"country": "Uzbekistan",
+"capital": "Tashkent",
+"continent": "Asia",
+"currency": "Uzbekistani som"
+},
+{
+"country": "Afghanistan",
+"capital": "Kabul",
+"continent": "Asia",
+"currency": "Afghan afghani"
+},
+{
+"country": "Iran",
+"capital": "Tehran",
+"continent": "Asia",
+"currency": "Iranian rial"
+},
+{
+"country": "Iraq",
+"capital": "Baghdad",
+"continent": "Asia",
+"currency": "Iraqi dinar"
+},
+{
+"country": "Saudi Arabia",
+"capital": "Riyadh",
+"continent": "Asia",
+"currency": "Saudi riyal"
+},
+{
+"country": "United Arab Emirates",
+"capital": "Abu Dhabi",
+"continent": "Asia",
+"currency": "UAE dirham"
+},
+{
+"country": "Qatar",
+"capital": "Doha",
+"continent": "Asia",
+"currency": "Qatari riyal"
+},
+{
+"country": "Oman",
+"capital": "Muscat",
+"continent": "Asia",
+"currency": "Omani rial"
+},
+{
+"country": "Jordan",
+"capital": "Amman",
+"continent": "Asia",
+"currency": "Jordanian dinar"
+},
+{
+"country": "Egypt",
+"capital": "Cairo",
+"continent": "Africa",
+"currency": "Egyptian pound"
+},
+{
+"country": "Nigeria",
+"capital": "Abuja",
+"continent": "Africa",
+"currency": "Nigerian naira"
+},
+{
+"country": "Kenya",
+"capital": "Nairobi",
+"continent": "Africa",
+"currency": "Kenyan shilling"
+},
+{
+"country": "Ethiopia",
+"capital": "Addis Ababa",
+"continent": "Africa",
+"currency": "Ethiopian birr"
+},
+{
+"country": "Ghana",
+"capital": "Accra",
+"continent": "Africa",
+"currency": "Ghanaian cedi"
+},
+{
+"country": "Morocco",
+"capital": "Rabat",
+"continent": "Africa",
+"currency": "Moroccan dirham"
+},
+{
+"country": "Algeria",
+"capital": "Algiers",
+"continent": "Africa",
+"currency": "Algerian dinar"
+},
+{
+"country": "Tanzania",
+"capital": "Dodoma",
+"continent": "Africa",
+"currency": "Tanzanian shilling"
+},
+{
+"country": "Uganda",
+"capital": "Kampala",
+"continent": "Africa",
+"currency": "Ugandan shilling"
+},
+{
+"country": "Botswana",
+"capital": "Gaborone",
+"continent": "Africa",
+"currency": "Botswana pula"
+},
+{
+"country": "Namibia",
+"capital": "Windhoek",
+"continent": "Africa",
+"currency": "Namibian dollar"
+},
+{
+"country": "Madagascar",
+"capital": "Antananarivo",
+"continent": "Africa",
+"currency": "Malagasy ariary"
+},
+{
+"country": "Rwanda",
+"capital": "Kigali",
+"continent": "Africa",
+"currency": "Rwandan franc"
+},
+{
+"country": "Angola",
+"capital": "Luanda",
+"continent": "Africa",
+"currency": "Angolan kwanza"
+},
+{
+"country": "Zambia",
+"capital": "Lusaka",
+"continent": "Africa",
+"currency": "Zambian kwacha"
+},
+{
+"country": "Malawi",
+"capital": "Lilongwe",
+"continent": "Africa",
+"currency": "Malawian kwacha"
+},
+{
+"country": "Senegal",
+"capital": "Dakar",
+"continent": "Africa",
+"currency": "West African CFA franc"
+},
+{
+"country": "Tunisia",
+"capital": "Tunis",
+"continent": "Africa",
+"currency": "Tunisian dinar"
+},
+{
+"country": "United Kingdom",
+"capital": "London",
+"continent": "Europe",
+"currency": "pound sterling"
+},
+{
+"country": "France",
+"capital": "Paris",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Germany",
+"capital": "Berlin",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Italy",
+"capital": "Rome",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Spain",
+"capital": "Madrid",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Portugal",
+"capital": "Lisbon",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Belgium",
+"capital": "Brussels",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Switzerland",
+"capital": "Bern",
+"continent": "Europe",
+"currency": "Swiss franc"
+},
+{
+"country": "Austria",
+"capital": "Vienna",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Poland",
+"capital": "Warsaw",
+"continent": "Europe",
+"currency": "Polish złoty"
+},
+{
+"country": "Czech Republic",
+"capital": "Prague",
+"continent": "Europe",
+"currency": "Czech koruna"
+},
+{
+"country": "Hungary",
+"capital": "Budapest",
+"continent": "Europe",
+"currency": "Hungarian forint"
+},
+{
+"country": "Romania",
+"capital": "Bucharest",
+"continent": "Europe",
+"currency": "Romanian leu"
+},
+{
+"country": "Greece",
+"capital": "Athens",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Sweden",
+"capital": "Stockholm",
+"continent": "Europe",
+"currency": "Swedish krona"
+},
+{
+"country": "Norway",
+"capital": "Oslo",
+"continent": "Europe",
+"currency": "Norwegian krone"
+},
+{
+"country": "Denmark",
+"capital": "Copenhagen",
+"continent": "Europe",
+"currency": "Danish krone"
+},
+{
+"country": "Finland",
+"capital": "Helsinki",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Iceland",
+"capital": "Reykjavík",
+"continent": "Europe",
+"currency": "Icelandic króna"
+},
+{
+"country": "Ireland",
+"capital": "Dublin",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Ukraine",
+"capital": "Kyiv",
+"continent": "Europe",
+"currency": "Ukrainian hryvnia"
+},
+{
+"country": "Serbia",
+"capital": "Belgrade",
+"continent": "Europe",
+"currency": "Serbian dinar"
+},
+{
+"country": "Croatia",
+"capital": "Zagreb",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Estonia",
+"capital": "Tallinn",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Latvia",
+"capital": "Riga",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Lithuania",
+"capital": "Vilnius",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "Slovenia",
+"capital": "Ljubljana",
+"continent": "Europe",
+"currency": "euro"
+},
+{
+"country": "United States",
+"capital": "Washington, D.C.",
+"continent": "Americas",
+"currency": "US dollar"
+},
+{
+"country": "Canada",
+"capital": "Ottawa",
+"continent": "Americas",
+"currency": "Canadian dollar"
+},
+{
+"country": "Mexico",
+"capital": "Mexico City",
+"continent": "Americas",
+"currency": "Mexican peso"
+},
+{
+"country": "Brazil",
+"capital": "Brasília",
+"continent": "Americas",
+"currency": "Brazilian real"
+},
+{
+"country": "Argentina",
+"capital": "Buenos Aires",
+"continent": "Americas",
+"currency": "Argentine peso"
+},
+{
+"country": "Chile",
+"capital": "Santiago",
+"continent": "Americas",
+"currency": "Chilean peso"
+},
+{
+"country": "Peru",
+"capital": "Lima",
+"continent": "Americas",
+"currency": "Peruvian sol"
+},
+{
+"country": "Colombia",
+"capital": "Bogotá",
+"continent": "Americas",
+"currency": "Colombian peso"
+},
+{
+"country": "Venezuela",
+"capital": "Caracas",
+"continent": "Americas",
+"currency": "Venezuelan bolívar"
+},
+{
+"country": "Ecuador",
+"capital": "Quito",
+"continent": "Americas",
+"currency": "US dollar"
+},
+{
+"country": "Uruguay",
+"capital": "Montevideo",
+"continent": "Americas",
+"currency": "Uruguayan peso"
+},
+{
+"country": "Paraguay",
+"capital": "Asunción",
+"continent": "Americas",
+"currency": "Paraguayan guaraní"
+},
+{
+"country": "Cuba",
+"capital": "Havana",
+"continent": "Americas",
+"currency": "Cuban peso"
+},
+{
+"country": "Jamaica",
+"capital": "Kingston",
+"continent": "Americas",
+"currency": "Jamaican dollar"
+},
+{
+"country": "Panama",
+"capital": "Panama City",
+"continent": "Americas",
+"currency": "Panamanian balboa"
+},
+{
+"country": "Costa Rica",
+"capital": "San José",
+"continent": "Americas",
+"currency": "Costa Rican colón"
+},
+{
+"country": "Guatemala",
+"capital": "Guatemala City",
+"continent": "Americas",
+"currency": "Guatemalan quetzal"
+}
+]

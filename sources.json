@@ -23,7 +23,8 @@
   "parenting": 10,
   "japan": 14,
   "money": 14,
-  "tech": 18
+  "tech": 18,
+  "consulting": 12
  },
  "corroboration": {
   "world": {
@@ -170,6 +171,13 @@
    ]
   },
   "tech": {
+   "min_sources": 1,
+   "tiers": [
+    1,
+    2
+   ]
+  },
+  "consulting": {
    "min_sources": 1,
    "tiers": [
     1,
@@ -1031,6 +1039,114 @@
    "route": [
     "ai"
    ]
+  },
+  {
+   "id": "gn_deloitte",
+   "name": "Google News",
+   "tier": 2,
+   "section": "consulting",
+   "gn": "Deloitte",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "smh.com.au",
+    "theage.com.au",
+    "theaustralian.com.au",
+    "theguardian.com",
+    "wsj.com",
+    "nytimes.com",
+    "cnbc.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "consultancy.com.au",
+    "consultancy.uk",
+    "consultancy.asia",
+    "accountancyage.com",
+    "accountingtoday.com",
+    "fortune.com",
+    "itnews.com.au",
+    "innovationaus.com"
+   ],
+   "days": 4,
+   "fallback": "skip"
+  },
+  {
+   "id": "gn_big4",
+   "name": "Google News",
+   "tier": 2,
+   "section": "consulting",
+   "gn": "PwC OR KPMG OR \"Ernst & Young\" OR \"EY Australia\" OR \"Big Four\" accounting",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "smh.com.au",
+    "theage.com.au",
+    "theaustralian.com.au",
+    "theguardian.com",
+    "wsj.com",
+    "nytimes.com",
+    "cnbc.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "consultancy.com.au",
+    "consultancy.uk",
+    "consultancy.asia",
+    "accountancyage.com",
+    "accountingtoday.com",
+    "fortune.com",
+    "itnews.com.au",
+    "innovationaus.com"
+   ],
+   "days": 4,
+   "fallback": "skip"
+  },
+  {
+   "id": "gn_consulting",
+   "name": "Google News",
+   "tier": 2,
+   "section": "consulting",
+   "gn": "Accenture OR McKinsey OR \"Boston Consulting Group\" OR \"Bain & Company\" OR consultancy",
+   "domains": [
+    "reuters.com",
+    "apnews.com",
+    "bbc.co.uk",
+    "bbc.com",
+    "ft.com",
+    "bloomberg.com",
+    "afr.com",
+    "smh.com.au",
+    "theage.com.au",
+    "theaustralian.com.au",
+    "theguardian.com",
+    "wsj.com",
+    "nytimes.com",
+    "cnbc.com",
+    "economictimes.indiatimes.com",
+    "livemint.com",
+    "abc.net.au",
+    "consultancy.com.au",
+    "consultancy.uk",
+    "consultancy.asia",
+    "accountancyage.com",
+    "accountingtoday.com",
+    "fortune.com",
+    "itnews.com.au",
+    "innovationaus.com"
+   ],
+   "days": 4,
+   "fallback": "skip"
   }
  ],
  "section_keywords": {
@@ -1052,6 +1168,7 @@
   "india_sports": ".",
   "parenting": "\\bbab(y|ies)\\b|infant|toddler|newborn|\\bchild(ren)?\\b|\\bkids?\\b|parent|pregnan|paediatric|pediatric|breastfe|childcare|nappy|diaper|\\bsids\\b|school|teen|adolescen|vaccin|autism|\\badhd\\b",
   "money": ".",
-  "tech": "."
+  "tech": ".",
+  "consulting": "deloitte|\\bpwc\\b|pricewaterhouse|kpmg|\\bey\\b|ernst & young|accenture|mckinsey|boston consulting|\\bbcg\\b|\\bbain\\b|big four|consult(ing|ancy|ant)|audit"
  }
 }
