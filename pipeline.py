@@ -335,7 +335,8 @@ def gemini(prompt, key, models, temperature=0.3):
             try:
                 return gemini_call(prompt, key, model, temperature)
             except urllib.error.HTTPError as ex:
-                last = ex
+                if not (last and ex.code == 404):  # a retired model shouldn't hide the real (quota) error
+                    last = ex
                 if ex.code not in (429, 500, 503):
                     break
             except (TimeoutError, urllib.error.URLError) as ex:
@@ -366,7 +367,7 @@ def gemini_call(prompt, key, model, temperature):
 
 
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
-MODELS = os.environ.get("GEMINI_MODELS", "gemini-flash-latest,gemini-flash-lite-latest,gemini-2.5-flash").split(",")
+MODELS = os.environ.get("GEMINI_MODELS", "gemini-flash-latest,gemini-flash-lite-latest").split(",")
 
 
 def ai_pass(candidates, log):
