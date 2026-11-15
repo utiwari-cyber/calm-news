@@ -62,9 +62,9 @@ def gn_url(query, section, days=1):
     return f"https://news.google.com/rss/search?q={q}&hl={hl}&gl={gl}&ceid={ceid}"
 
 
-def fetch(url, ua=UA, limit=None):
+def fetch(url, ua=UA, limit=None, timeout=20):
     req = urllib.request.Request(url, headers={"User-Agent": ua})
-    with urllib.request.urlopen(req, timeout=20) as r:
+    with urllib.request.urlopen(req, timeout=timeout) as r:
         data = r.read(limit) if limit else r.read()
     # Some feeds (e.g. DeepMind) send gzip even when it wasn't asked for
     return gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
@@ -159,7 +159,7 @@ def parse_feed(src, raw):
             if dom.endswith(TIER1_DOMAINS):
                 tier = 1
 
-        if not title or not link:
+        if not title or not link or not is_english(title + " " + desc):
             continue
         out.append({
             "source_id": src["id"], "source": name, "tier": tier, "section": section_for(src, title, desc),
@@ -205,9 +205,9 @@ def similarity(a, b):
     """Jaccard over title+text, or a strong headline overlap: headline-only items with
     different wording (common from Google News) still land in the same story."""
     shared = len(a["_tok"] & b["_tok"])
-    jac = shared / (len(a["_tok"] | b["_tok"]) or 1) if shared >= 3 else 0
+    jac = shared / (len(a["_tok"] | b["_tok"]) or 1) if shared >= 4 else 0
     st = len(a["_ttok"] & b["_ttok"])
-    overlap = st / (min(len(a["_ttok"]), len(b["_ttok"])) or 1) if st >= 3 else 0
+    overlap = st / (min(len(a["_ttok"]), len(b["_ttok"])) or 1) if st >= 4 else 0  # 3 merged "man/house/fire" stories
     return max(jac, 0.3 if overlap >= 0.6 else 0)
 
 
@@ -450,6 +450,15 @@ JUNK_PARA = re.compile(r"cookie|subscri|premium|unlock|sign ?up|newsletter|javas
 CHROME = re.compile(r"<(script|style|nav|header|footer|aside|form|figure|noscript)\b.*?</\1>", re.S | re.I)
 
 
+STOPWORDS = set("the a an of to in and is was for on with that by as at from has have it its are be will said after".split())
+
+
+def is_english(text):
+    """Some regional sites (e.g. The Shillong Times) also publish in Garo and Khasi."""
+    words = re.findall(r"[a-z]+", text.lower())
+    return len(words) < 12 or sum(w in STOPWORDS for w in words) / len(words) >= 0.08
+
+
 def tidy(text):
     """Drop feed/site boilerplate that rides along with article text."""
     text = re.sub(r"\s*The post .{5,300}? appeared first on .*$", "", text)
@@ -458,7 +467,7 @@ def tidy(text):
 
 
 def page_text(url):
-    page = fetch(url, BROWSER_UA, 400_000).decode("utf8", "ignore")
+    page = fetch(url, BROWSER_UA, 400_000, timeout=10).decode("utf8", "ignore")
     page = CHROME.sub(" ", page.split("<body", 1)[-1]) if "<body" in page else page
     meta = re.search(r'<meta[^>]+(?:property|name)="(?:og:description|description)"[^>]+content="([^"]*)"', page) \
         or re.search(r'<meta[^>]+content="([^"]*)"[^>]+(?:property|name)="(?:og:description|description)"', page)
@@ -494,7 +503,7 @@ def enrich(candidates, log):
             lead["desc"] = hit["text"]
             return True
 
-    with cf.ThreadPoolExecutor(max_workers=6) as pool:
+    with cf.ThreadPoolExecutor(max_workers=12) as pool:
         got = sum(1 for ok in pool.map(one, thin) if ok)
     log.append(f"enrich: {got}/{len(thin)} thin stories got article text")
     cutoff = (NOW - dt.timedelta(days=3)).isoformat()
