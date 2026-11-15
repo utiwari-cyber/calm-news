@@ -163,7 +163,7 @@ def parse_feed(src, raw):
             continue
         out.append({
             "source_id": src["id"], "source": name, "tier": tier, "section": section_for(src, title, desc),
-            "title": title, "link": link.strip(), "desc": desc, "image": image_of(e),
+            "title": title, "link": link.strip(), "desc": tidy(desc), "image": image_of(e),
             "published": date.isoformat() if date else None,
             "max_age_h": src.get("days", 0) * 24 or MAX_AGE_HOURS,
         })
@@ -444,11 +444,22 @@ def resolve_gn(link):
     return json.loads(json.loads(raw.split("\n\n")[1])[0][2])[1]
 
 
-JUNK_PARA = re.compile(r"cookie|subscribe|sign up|newsletter|javascript|all rights reserved|advertis|click here|log ?in", re.I)
+JUNK_PARA = re.compile(r"cookie|subscri|premium|unlock|sign ?up|newsletter|javascript|rights reserved|advertis|click here|"
+                       r"log ?in|writes to you|of the week|follow us|download (the|our) app|e-?paper|also read|read more|"
+                       r"recommended|trending|whatsapp|telegram channel|copyright|terms of (use|service)|privacy policy|photo credit|file photo|getty images|image (source|credit)", re.I)
+CHROME = re.compile(r"<(script|style|nav|header|footer|aside|form|figure|noscript)\b.*?</\1>", re.S | re.I)
+
+
+def tidy(text):
+    """Drop feed/site boilerplate that rides along with article text."""
+    text = re.sub(r"\s*The post .{5,300}? appeared first on .*$", "", text)
+    text = re.sub(r"\s*(\[(…|\.\.\.)\]|Continue reading.*|Read more.*)$", "", text)
+    return text.strip()
 
 
 def page_text(url):
     page = fetch(url, BROWSER_UA, 400_000).decode("utf8", "ignore")
+    page = CHROME.sub(" ", page.split("<body", 1)[-1]) if "<body" in page else page
     meta = re.search(r'<meta[^>]+(?:property|name)="(?:og:description|description)"[^>]+content="([^"]*)"', page) \
         or re.search(r'<meta[^>]+content="([^"]*)"[^>]+(?:property|name)="(?:og:description|description)"', page)
     parts = [clean(meta.group(1))] if meta else []
@@ -458,13 +469,13 @@ def page_text(url):
             parts.append(t)
         if sum(map(len, parts)) > 1200:
             break
-    return " ".join(parts)[:1400]
+    return tidy(" ".join(parts)[:1400])
 
 
 def enrich(candidates, log):
     """Stories whose feeds gave little more than a headline get text from the article page,
     so the rewrite has enough to work with (and fewer cards fall under MIN_WORDS)."""
-    path = STATE / "text_cache_v2.json"
+    path = STATE / "text_cache_v3.json"
     cache = json.loads(path.read_text()) if path.exists() else {}
     thin = [s for s in candidates if max(len(m["desc"]) for m in s["members"]) < 300]
 
@@ -718,7 +729,11 @@ def strip_outlet_lead(text):
 def fallback_summary(s):
     text = max((m["desc"] for m in s["members"]), key=len)
     words = text.split()
-    return " ".join(words[:60]) + ("…" if len(words) > 60 else "")
+    if len(words) <= 60:
+        return text
+    cut = " ".join(words[:60])
+    end = max(cut.rfind(". "), cut.rfind("? "), cut.rfind("! "))
+    return cut[:end + 1] if end > 150 else cut + "…"
 
 
 def card(s):
